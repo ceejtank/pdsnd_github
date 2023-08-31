@@ -1,17 +1,24 @@
 >**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
 
 ### Date created
-Include the date you created this project and README file.
+August 31, 2023
 
 ### Project Title
-Replace the Project Title
+Udacity Git Project
 
 ### Description
-Describe what your project is about and what it does
+Udacity git project using the python project. Python project analizes bike share data to provide usable data.
 
 ### Files used
-Include the files used
+bikeshare.py
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Last but not least, I wanna thank me<br>
+I wanna thank me for believing in me<br>
+I wanna thank me for doing all this hard work<br>
+I wanna thank me for having no days off<br>
+I wanna thank me for... for never quitting<br>
+I wanna thank me for always being a giver<br>
+And tryna give more than I receive<br>
+I wanna thank me for tryna do more right than wrong<br>
+I wanna thank me for just being me at all times
