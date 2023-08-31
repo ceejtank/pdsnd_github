@@ -148,7 +148,9 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """
+    Displays statistics on the most popular stations and trip.
+    """
 
     print("\n\033[34mCalculating The Most Popular Stations and Trip...\033[0m\n")
     start_time = time.time()
@@ -162,7 +164,7 @@ def station_stats(df):
     # get the most common start/end comination by grouping the dataframe by start and end station, return a series with each start/end being the index, and the count being the values, reset the index to the counts column, sort it by decending, then take the top result and save it to start_end_count
     start_end_count = df.groupby(["Start Station", "End Station"]).size().reset_index(name="Count").sort_values(by="Count", ascending=False).iloc[0]
 
-    #p print the results
+    # print the results
     print("The most common starting station was \"{}\". The most common ending station was \"{}\".\nThe most common trip started at \"{}\" station and ended at \"{}\" station. It occured {} times.".format(most_common_start, most_common_end, start_end_count[0], start_end_count[1], start_end_count[2]))
 
 
@@ -171,7 +173,9 @@ def station_stats(df):
 
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
+    """
+    Displays statistics on the total and average trip duration.
+    """
 
     print("\n\033[34mCalculating Trip Duration...\033[0m\n")
     start_time = time.time()
@@ -190,7 +194,9 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """
+    Displays statistics on bikeshare users.
+    """
 
     print("\n\033[34mCalculating User Stats...\033[0m\n")
     start_time = time.time()
@@ -250,7 +256,7 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
-        # Ask if the user wants to see the raw data, if they don't, move on
+        # ask if the user wants to see the raw data, if they don't, move on
         if input("\nWould you like to see the raw data? (default: yes): ").lower() in ["yes", "y", ""]:
             # pre set the starting index at 0
             start_index = 0
