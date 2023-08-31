@@ -5,7 +5,7 @@ August 31, 2023
 Udacity Git Project
 
 ### Description
-Udacity git project using the python project. Python project analizes bike share data to provide usable data.
+Udacity git project using the python project. Python project analizes bike share data to provide useful statistics on ride times, user demographics, and start and stop points of rides.
 
 ### Files used
 bikeshare.py
