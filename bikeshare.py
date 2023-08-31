@@ -27,18 +27,18 @@ def init_dataframe():
                 city = "washington"
             # if the input is valid, notify the user and move on
             if 1 <= city_num <= 3:
-                print("\n\033[32m{} selected\033[0m".format(city.title()))
+                print("\n\033[32m{} selected.\033[0m".format(city.title()))
                 break
             # if the input is an integer but not within the valid range, notify the user and re-query
             else:
-                print("\n\033[91mInput not within the valid range, please try again\033[0m")
+                print("\n\033[91mInput not within the valid range, please try again.\033[0m")
         # if the user hits ctrl-c while in the input loop, exit the program
         except KeyboardInterrupt:
-            print("\n\033[91mProgram interrupted by user\033[0m")
+            print("\n\033[91mProgram interrupted by user!\033[0m")
             raise SystemExit
         # # if the user gives us something that isn't a number, catch the error, inform the user, and restart the loop
         except:
-            print("\n\033[91mInvalid input, please try again\033[0m")
+            print("\n\033[91mInvalid input, please try again.\033[0m")
 
     # read the csv file into a data frame using the CITY_DATA dictionary to define the file name.
     try:
@@ -58,28 +58,28 @@ def init_dataframe():
             month = int(input("\nPlease select a month using a number or 0 for all months\nEnter a number 0-12: "))
             # if the user gives us zero, it means no filter so we'll break out of the loop and move on
             if month == 0:
-                print("\n\033[32mSelecting all months\033[0m")
+                print("\n\033[32mSelecting all months.\033[0m")
                 break
             # if the user gives us a number between 1 and 12, continue
             elif 1 <= month <= 12:
                 # evaluate if the month selected has entries in the df. If it doesn't, it will throw errors when we try to pull the stats
                 if df[df["Start Time"].dt.month == month].empty:
-                    print("\n\033[91mThe selected month has no trips\033[0m")
+                    print("\n\033[91mThe selected month has no trips.\033[0m")
                 else:
                     # if the input has passes all checks, filter the dataframe and move on.
-                    print("\n\033[32m{} selected\033[0m".format(month_name[month]))
+                    print("\n\033[32m{} selected.\033[0m".format(month_name[month]))
                     df = df[df["Start Time"].dt.month == month]
                     break
             # if the user gives us a number that isn't int he valid range, inform the user and restart the loop
             else:
-                print("\n\033[91mInput not within the valid range, please try again\033[0m")
+                print("\n\033[91mInput not within the valid range, please try again.\033[0m")
         # if the user hits ctrl-c while in the input loop, exit the program
         except KeyboardInterrupt:
-            print("\n\033[91mProgram interrupted by user\033[0m")
+            print("\n\033[91mProgram interrupted by user!\033[0m")
             raise SystemExit
         # if the user gives us something that isn't a number, catch the error, inform the user, and restart the loop
         except:
-                print("\n\033[91mInput must be a number between 0 and 12, please try again\033[0m")
+                print("\n\033[91mInput must be a number between 0 and 12, please try again.\033[0m")
         
     # query the user to select a day. We're doing it in a while True and try loop so we can validate it and if it's not right redo the query.
     while True:
@@ -88,7 +88,7 @@ def init_dataframe():
             day = int(input("\nPlease select the day of the week using a number or 0 for all days. Monday is 1, Sunday is 7.\nEnter a number 0-7: "))
             # if the user gives us zero, it means no filter so we'll break out of the loop and move on
             if day == 0:
-                print("\n\033[32mSelecting all days\033[0m")
+                print("\n\033[32mSelecting all days.\033[0m")
                 break
             # if the user gives us a number between 1 and 7, continue
             elif 1 <= day <= 7:
@@ -96,23 +96,23 @@ def init_dataframe():
                 day -= 1
                 # evaluate if the day selected has entries in the df. If it doesn't, it will throw errors when we try to pull the stats.
                 if df[df["Start Time"].dt.dayofweek == day].empty:
-                    print("\n\033[91mThe selected day has no trips\033[0m")
+                    print("\n\033[91mThe selected day has no trips!\033[0m")
                 # if the input has passed all checks, filter the dataframe and move on.
                 else:
-                    print("\n\033[32m{} selected\033[0m".format(day_name[day]))
+                    print("\n\033[32m{} selected.\033[0m".format(day_name[day]))
                     df = df[df["Start Time"].dt.dayofweek == day]
                     break
                 break
             # if the user gives us a number that isn't int he valid range, inform the user and restart the loop
             else:
-                print("\n\033[91mInput not within the valid range, please try again\033[0m")
+                print("\n\033[91mInput not within the valid range, please try again.\033[0m")
         # if the user hits ctrl-c while in the input loop, exit the program
         except KeyboardInterrupt:
-            print("\n\033[91mProgram interrupted by user\033[0m")
+            print("\n\033[91mProgram interrupted by user!\033[0m")
             raise SystemExit
         # if the user gives us something that isn't a number, catch the error, inform the user, and restart the loop
         except:
-            print("\n\033[91mInvalid input, please try again\033[0m")
+            print("\n\033[91mInvalid input, please try again.\033[0m")
 
     print("\n", "-"*40)
     return df
@@ -208,7 +208,7 @@ def user_stats(df):
         print("There are {} rides by subscribers, {} rides by customers, {} rides by dependents, and {} rides without a specified customer type.".format(sub_count, cust_count, dep_count, nan_user_count))
     else:
         # if there is no user type data, inform the user
-        print("\033[91mThere is no data on user types for your selected filters\033[0m")
+        print("\033[91mThere is no data on user types for your selected filters.\033[0m")
 
     # get counts of gender
     # make sure there is gender data within the dataframe
@@ -222,7 +222,7 @@ def user_stats(df):
         print("There are {} rides with male riders, {} rides with female riders, and {} rides without a given gender.".format(male_count, female_count, nan_gender_count))
     else:
         # if there is no gender data, inform the user
-        print("\033[91mThere is no gender data for your selected filters\033[0m")
+        print("\033[91mThere is no gender data for your selected filters.\033[0m")
 
     # get birth year data
     # make sure there is birth year data in the dataframe
@@ -236,7 +236,7 @@ def user_stats(df):
         print("The earliest birth year is {} making the oldest rider {}. The most recent birth year is {} making the youngest rider {}. The most common birth year is {} making {} the most common age.".format(earliest_year, this_year - earliest_year, most_recent_year, this_year - earliest_year, most_common_year, this_year - most_common_year))
     else:
         # if there is no birth year data, inform the user
-        print("\033[91mThere is no birth year data for this city\033[0m")
+        print("\033[91mThere is no birth year data for this city.\033[0m")
 
     print("\nThis took {} seconds.".format(f'{(time.time() - start_time):.2f}'))
     print("-"*40)
@@ -281,5 +281,5 @@ if __name__ == "__main__":
         while True:
             main()
     except KeyboardInterrupt:
-        print("\n\033[91mProgram interrupted by user\033[0m\n")
+        print("\n\033[91mProgram interrupted by user!\033[0m\n")
         raise SystemExit
