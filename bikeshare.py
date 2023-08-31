@@ -36,7 +36,7 @@ def init_dataframe():
         except KeyboardInterrupt:
             print("\n\033[91mProgram interrupted by user!\033[0m")
             raise SystemExit
-        # # if the user gives us something that isn't a number, catch the error, inform the user, and restart the loop
+        # if the user gives us something that isn't a number, catch the error, inform the user, and restart the loop
         except:
             print("\n\033[91mInvalid input, please try again.\033[0m")
 
