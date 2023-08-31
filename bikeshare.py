@@ -143,7 +143,7 @@ def time_stats(df):
     print("Most trips happened in the month of {}.\nMost trips happened on {}.\nMost trips started at {}:00 {}M.".format(most_common_month, most_common_dow, most_common_hour[0], most_common_hour[1]))
 
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took {} seconds.".format(f'{(time.time() - start_time):.2f}'))
     print("-"*40)
 
 
@@ -166,7 +166,7 @@ def station_stats(df):
     print("The most common starting station was \"{}\". The most common ending station was \"{}\".\nThe most common trip started at \"{}\" station and ended at \"{}\" station. It occured {} times.".format(most_common_start, most_common_end, start_end_count[0], start_end_count[1], start_end_count[2]))
 
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took {} seconds.".format(f'{(time.time() - start_time):.2f}'))
     print("-"*40)
 
 
@@ -185,7 +185,7 @@ def trip_duration_stats(df):
     # print the results of total and mean travel time
     print("Customers rode for a total of {} minutes in the selected period.\nThe average trip was {} minutes long.".format(total_travel, mean_travel))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took {} seconds.".format(f'{(time.time() - start_time):.2f}'))
     print("-"*40)
 
 
@@ -238,7 +238,7 @@ def user_stats(df):
         # if there is no birth year data, inform the user
         print("\033[91mThere is no birth year data for this city\033[0m")
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took {} seconds.".format(f'{(time.time() - start_time):.2f}'))
     print("-"*40)
 
 
@@ -264,7 +264,7 @@ def main():
                 print("Entries {} - {} of {}".format(start_index + 1, end_index, len(df)))
                 # if you are at or past the end of the data frame, notify the user and exit the loop
                 if end_index >= len(df):
-                    print("\033[91mYou're at the end of the data\033[0m")
+                    print("\033[91mYou're at the end of the data!\033[0m")
                     break
                 # ask the user if they want to continue. If they do, reset the start index to just after the current end, and restart to loop. If not, move on.
                 if input("Continue? (default: yes): ").lower() not in ["yes", "y", ""]:
