@@ -219,7 +219,7 @@ def user_stats(df):
         # get a count of rides with no specified gender
         nan_gender_count = df["Gender"].isna().sum()
         # print the results
-        print("There are {} rides with male riders, {} rides with female riders, and {} rides without a given gender.".format(male_count, female_count, nan_gender_count))
+        print("There are {} rides with male riders, {} rides with female riders, and {} rides without a specified gender.".format(male_count, female_count, nan_gender_count))
     else:
         # if there is no gender data, inform the user
         print("\033[91mThere is no gender data for your selected filters.\033[0m")
